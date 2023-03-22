@@ -4,7 +4,7 @@ from openpyxl import load_workbook
 import pandas as pd
 
 
-def create_table_database(exel_file, table_name):
+def create_table_database(exel_file, DB_name):
     con = sqlite3.connect('data.db')
     wb = pd.read_excel('example.xlsx', sheet_name=None)
     for sheet in wb:
@@ -50,7 +50,7 @@ def add_calculated_total():
 
 if __name__ == '__main__':
     try:
-        create_table_database(exel_file='example.xlsx', table_name='data.db')
+        create_table_database(exel_file='example.xlsx', DB_name='data.db')
     except Exception:
         print('БД с таким именем уже создана')
     finally:
